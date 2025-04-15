@@ -11,14 +11,14 @@ const Create: React.FC<CreateProps> = ({ onCreate }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     if (!name.trim() || !description.trim()) {
-      return; // Prevent submission if name or description is empty
+      return; // Prevent calling onCreate if name or description is empty
     } else {
       e.preventDefault();
       const newItem: Item = { id: Date.now(), name, description };
       onCreate(newItem);
-      setName("");
-      setDescription("");
     }
+    setName("");
+    setDescription("");
   };
 
   return (
